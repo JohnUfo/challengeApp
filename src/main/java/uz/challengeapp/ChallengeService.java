@@ -1,6 +1,7 @@
 package uz.challengeapp;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,7 +46,12 @@ public class ChallengeService {
         return false;
     }
 
+    @Transactional
     public boolean deleteChallenge(Long id) {
-        return challengeRepository.deleteChallengeById(id);
+        if (challengeRepository.existsById(id)) {
+            challengeRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

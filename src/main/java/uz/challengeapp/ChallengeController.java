@@ -53,7 +53,7 @@ public class ChallengeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteChallenge(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteChallenge(@PathVariable("id") Long id) {
         boolean isDeleted = challengeService.deleteChallenge(id);
         return isDeleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }

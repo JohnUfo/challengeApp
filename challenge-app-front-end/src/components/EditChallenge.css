@@ -1,0 +1,54 @@
+.edit-challenge {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-challenge label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.edit-challenge input,
+.edit-challenge textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.edit-challenge textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.edit-challenge button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-challenge button:hover {
+  background-color: #0056b3;
+}
+
+.edit-challenge button[type="button"] {
+  background-color: #6c757d;
+}
+
+.edit-challenge button[type="button"]:hover {
+  background-color: #5a6268;
+}
