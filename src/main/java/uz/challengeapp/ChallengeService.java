@@ -2,48 +2,50 @@ package uz.challengeapp;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ChallengeService {
 
-    private List<Challenge> challenges = new ArrayList<>();
+    private final ChallengeRepository challengeRepository;
 
+    public ChallengeService(ChallengeRepository challengeRepository) {
+        this.challengeRepository = challengeRepository;
+    }
 
     public List<Challenge> getAllChallenges() {
-        return challenges;
+        return challengeRepository.findAll();
     }
 
     public Challenge getChallenge(Long id) {
-        return challenges.stream().filter(challenge -> challenge.getId().equals(id)).findFirst().orElse(null);
+        return challengeRepository.findById(id).orElse(null);
     }
 
     public Challenge getChallengeByMonth(String month) {
-        for (Challenge challenge : challenges) {
-            if (challenge.getMonth().equalsIgnoreCase(month)) {
-                return challenge;
-            }
-        }
-        return null;
+        return challengeRepository.findByMonthEqualsIgnoreCase(month);
     }
 
     public boolean addChallenge(Challenge challenge) {
-        return challenges.add(challenge);
+        challengeRepository.save(challenge);
+        return true;
     }
 
     public boolean updateChallenge(Long id, Challenge challenge) {
-        for (Challenge challenge1 : challenges) {
-            if (challenge1.getId().equals(id)) {
+        Challenge challenge1 = getChallenge(id);
+        if (challenge1 != null) {
+            if (challenge.getMonth()!=null) {
                 challenge1.setMonth(challenge.getMonth());
-                challenge1.setDescription(challenge.getDescription());
-                return true;
             }
+            if (challenge.getDescription()!=null) {
+                challenge1.setDescription(challenge.getDescription());
+            }
+            challengeRepository.save(challenge1);
+            return true;
         }
         return false;
     }
 
     public boolean deleteChallenge(Long id) {
-        return challenges.removeIf(challenge -> challenge.getId().equals(id));
+        return challengeRepository.deleteChallengeById(id);
     }
 }
