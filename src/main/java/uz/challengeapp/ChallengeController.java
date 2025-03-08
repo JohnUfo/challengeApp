@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/challenges")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://challenge-app-front.s3-website.eu-north-1.amazonaws.com"})
 public class ChallengeController {
 
     private final ChallengeService challengeService;

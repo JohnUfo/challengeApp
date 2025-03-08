@@ -15,7 +15,7 @@ function AddChallenge({ onChallengeAdded }) {
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/challenges", newChallenge);
+      const response = await axios.post("http://challenge-app-new-env.eba-e228zbgn.eu-north-1.elasticbeanstalk.com/challenges", newChallenge);
       console.log("Challenge added:", response.data);
 
       setMonth("");

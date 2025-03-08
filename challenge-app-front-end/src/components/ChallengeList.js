@@ -9,7 +9,7 @@ function ChallengeList({ challenges, onChallengeUpdated, onChallengeDeleted }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/challenges/${id}`);
+      await axios.delete(`http://challenge-app-new-env.eba-e228zbgn.eu-north-1.elasticbeanstalk.com/challenges/${id}`);
       onChallengeDeleted(id);
     } catch (error) {
       console.error("Error deleting challenge:", error);
@@ -18,7 +18,7 @@ function ChallengeList({ challenges, onChallengeUpdated, onChallengeDeleted }) {
 
   const handleUpdate = async (updatedChallenge) => {
     try {
-      await axios.put(`http://localhost:8080/challenges/${updatedChallenge.id}`, updatedChallenge);
+      await axios.put(`http://challenge-app-new-env.eba-e228zbgn.eu-north-1.elasticbeanstalk.com/challenges/${updatedChallenge.id}`, updatedChallenge);
       setEditingChallenge(null);
       onChallengeUpdated(); // Refresh the list of challenges
     } catch (error) {
