@@ -1,6 +1,6 @@
 # Challenge App
 
-A full-stack web application for managing monthly challenges. Built with **Spring Boot** (backend), **React** (frontend), and deployed on **AWS** using **RDS**, **EC2**, and **S3**.
+A full-stack web application for managing monthly challenges. Built with **Spring Boot** (backend), **React** (frontend), and deployed on **AWS** using **RDS**, **Elastic Beanstalk**, and **S3**.
 
 ## Live Demo
 
@@ -24,7 +24,7 @@ You can access the live application here:
 ### Backend
 - **Spring Boot**: Java framework for building the REST API.
 - **PostgreSQL**: Database for storing challenges (hosted on AWS RDS).
-- **AWS EC2**: Hosting the backend application.
+- **AWS Elastic Beanstalk**: Hosting the backend application.
 
 ### Frontend
 - **React**: JavaScript library for building the user interface.
@@ -33,7 +33,7 @@ You can access the live application here:
 
 ### Deployment
 - **AWS RDS**: Managed PostgreSQL database.
-- **AWS EC2**: Virtual server for hosting the Spring Boot backend.
+- **AWS Elastic Beanstalk**: Managed platform for hosting the Spring Boot backend.
 - **AWS S3**: Static website hosting for the React frontend.
 
 ---
@@ -64,6 +64,3 @@ You can access the live application here:
 | POST   | `/challenges`             | Add a new challenge.                 |
 | PUT    | `/challenges/{id}`        | Update an existing challenge.        |
 | DELETE | `/challenges/{id}`        | Delete a challenge.                  |
-
----
-
